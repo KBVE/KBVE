@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 
 // I will update this once I get the handler ready
-
+// Renamed the file
 
 public class Guild {
 	// Basic Guild Information

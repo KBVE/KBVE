@@ -1,3 +1,4 @@
 - Guild Object
 - Guild Handler (Pulls Guild Data via MySQL)
 - Guild Web Handler (manage the guild via web)
+- Guild Battles

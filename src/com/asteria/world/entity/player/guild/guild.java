@@ -1,4 +1,4 @@
-package server.model.players.guild;
+package com.asteria.world.entity.player.guild;
 
 import java.util.HashMap;
 

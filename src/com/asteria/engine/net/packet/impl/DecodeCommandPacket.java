@@ -10,6 +10,7 @@ import com.asteria.world.entity.Animation;
 import com.asteria.world.entity.Graphic;
 import com.asteria.world.entity.npc.Npc;
 import com.asteria.world.entity.player.Player;
+import com.asteria.world.entity.player.reputation.ReputationHandler;
 import com.asteria.world.entity.player.PlayerRights;
 import com.asteria.world.entity.player.skill.Skills;
 import com.asteria.world.item.Item;
@@ -47,6 +48,13 @@ public class DecodeCommandPacket extends PacketDecoder {
         	}
         	
         }
+        if(cmd[0].equalsIgnoreCase("rep"))
+        	{
+        	
+        	//Integer reputation = ReputationHandler.GetReputationMap(player).GetReputation().get("Daynor");
+        	player.getPacketBuilder().sendMessage(ReputationHandler.GetReputationMap(player).GetReputation().get("Daynor").toString());
+        	
+        	}
         if (player.getRights().greaterThan(PlayerRights.ADMINISTRATOR)) {
             switch (cmd[0]) {
             case "teleto":

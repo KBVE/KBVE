@@ -2,6 +2,7 @@ package com.asteria.world.entity.player;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -179,6 +180,9 @@ public class Player extends Entity {
 
     /** A list of local npcs. */
     private final Set<Npc> npcs = new LinkedHashSet<Npc>();
+    
+    /** A reputation hashmap */
+    private HashMap<String, Integer> Reputation = new HashMap<String, Integer>();
 
     /** The players rights. */
     private PlayerRights rights;
@@ -1446,6 +1450,16 @@ public class Player extends Entity {
         return tolerance;
     }
 
+    /**
+     * 
+     * 
+     * @return the Reputation
+     */
+    public HashMap<String, Integer> getReputation()
+    {
+    	return Reputation;
+    }
+    
     public Task getRestoreRun() {
         return restoreRun;
     }

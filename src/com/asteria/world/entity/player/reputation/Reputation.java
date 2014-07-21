@@ -3,6 +3,18 @@ package com.asteria.world.entity.player.reputation;
 import java.util.HashMap;
 
 public class Reputation {
+	/**
+	 * 
+	 * @author h0lybyte
+	 * 
+	 * Removed until Ruther notice. 
+	 * Such Dead Code.
+	 * Very Not wow?. 
+	 * 
+	 * TODO: Re-organize the reputation object. 
+	 * 
+	 * 
+	 */
 	
 	public HashMap<String, Integer> ReputationMap;
 	public String ReputationUsername; 

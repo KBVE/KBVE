@@ -16,6 +16,7 @@ import com.asteria.world.entity.player.Player;
 
 public class ReputationHandler {
 	
+	/**
 	public static HashMap<String, Reputation> ReputationPlayerMap = new HashMap<String, Reputation>();
 
 	
@@ -28,8 +29,16 @@ public class ReputationHandler {
 	{
 //	    GetReputationMap().replace(City, Amount);
 	}	
-
-	public static void OnLoad(Player player)
+	**/
+	
+	public static void NewReputation(Player player, String city, Integer amount)
+	{
+		player.getReputation().put("Draynor", 100);
+		
+		
+	}
+	
+	public static void UpdateReputation(Player player, String city, Integer amount)
 	{
 		if(GetReputationPlayerMap().containsKey(player.getUsername()))
 				{

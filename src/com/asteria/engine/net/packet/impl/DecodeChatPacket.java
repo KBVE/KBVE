@@ -10,6 +10,8 @@ import com.asteria.engine.net.packet.PacketDecoder;
 import com.asteria.engine.net.packet.PacketOpcodeHeader;
 import com.asteria.world.entity.UpdateFlags.Flag;
 import com.asteria.world.entity.player.Player;
+import org.apache.mina.core.buffer.IoBuffer;
+
 
 /**
  * Sent when the player speaks.
@@ -35,13 +37,13 @@ public class DecodeChatPacket extends PacketDecoder {
         }
 
         String stringtext = null;
-		try {
+    	try {
 			stringtext = new String(text, "UTF-8");
-	        logger.info(stringtext);
+	        logger.info("MSG: " + stringtext);
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		} 
 		stringtext = null;
         player.setChatEffects(effects);
         player.setChatColor(color);

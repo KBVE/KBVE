@@ -34,7 +34,7 @@ public final class Main {
     private static Logger logger = Logger.getLogger(Main.class.getSimpleName());
 
     /** The name of this server. */
-    public static final String NAME = "Asteria 2.0";
+    public static final String NAME = "Killing Beyond Visual Experience";
 
     /**
      * The first method invoked when the server is ran.
@@ -90,6 +90,8 @@ public final class Main {
             // Initialize and start the engine.
             Engine.init();
             logger.info("The engine is now running!");
+            // Loads the WorldBot (IRC Relay)
+            // Such WoW
             WorldBot.RunWorldBot();
             
             // Asteria is now online!

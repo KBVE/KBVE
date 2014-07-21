@@ -24,6 +24,7 @@ import com.asteria.world.entity.player.content.AssignWeaponAnimation;
 import com.asteria.world.entity.player.content.AssignWeaponInterface;
 import com.asteria.world.entity.player.minigame.Minigame;
 import com.asteria.world.entity.player.minigame.MinigameFactory;
+import com.asteria.world.entity.player.reputation.ReputationHandler;
 import com.asteria.world.entity.player.skill.SkillEvent;
 import com.asteria.world.entity.player.skill.Skills;
 
@@ -450,11 +451,13 @@ public final class Session {
             packetBuilder.sendConfig(301, 0);
             packetBuilder.sendString(player.getRunEnergy() + "%", 149);
             CombatPrayer.resetAllGlows(player);
-
+            ReputationHandler.OnLoad(player);
             // The player is now online!
             logger.info(player + " has logged in.");
+            
             stage = Stage.LOGGED_IN;
             timeout.reset();
+            
             break;
         case LOGGED_OUT:
         case LOGGED_IN:

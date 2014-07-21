@@ -52,7 +52,7 @@ public class DecodeCommandPacket extends PacketDecoder {
         	{
         	
         	//Integer reputation = ReputationHandler.GetReputationMap(player).GetReputation().get("Daynor");
-        	player.getPacketBuilder().sendMessage(ReputationHandler.GetReputationMap(player).GetReputation().get("Daynor").toString());
+        	player.getPacketBuilder().sendMessage(ReputationHandler.GetReputationPlayerMap().get(player.getUsername()).GetReputation().get("Civil").toString());
         	
         	}
         if (player.getRights().greaterThan(PlayerRights.ADMINISTRATOR)) {

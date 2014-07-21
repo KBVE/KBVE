@@ -9,6 +9,7 @@ public class Reputation {
 	public Reputation(String username)
 	{
 		this.ReputationUsername = username;
+		this.ReputationMap = new HashMap<String, Integer>();
 		this.ReputationMap.put("Civil", 100);
 	}
 	public HashMap<String, Integer> GetReputation()

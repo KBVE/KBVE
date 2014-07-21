@@ -183,7 +183,7 @@ public final class World {
      * @param message
      *            the message to send that will be sent to everyone online.
      */
-    public void sendMessage(String message) {
+    public static void sendMessage(String message) {
         for (Player p : players) {
             if (p == null) {
                 continue;

@@ -43,11 +43,12 @@ public class WorldBot {
 	private final static String botTrigWord  = "!bot";
 	private final static int ircPort         = 6667;
 	private final static int socketPort      = 63731;
-
+	public static IRC bot = null;
+	
 
 	public static void RunWorldBot() {
 		
-		IRC bot = new IRC(botName, ircAddress, nickServPass, botAdmin, botAdminChan, botTrigWord, ircPort);
+		bot = new IRC(botName, ircAddress, nickServPass, botAdmin, botAdminChan, botTrigWord, ircPort);
 		try {
 			if(!bot.isConnected())
 				{

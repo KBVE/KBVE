@@ -4,6 +4,7 @@ import com.asteria.engine.net.HostGateway;
 import com.asteria.engine.net.ProtocolBuffer;
 import com.asteria.engine.net.packet.PacketDecoder;
 import com.asteria.engine.net.packet.PacketOpcodeHeader;
+import com.asteria.irc.WorldBot;
 import com.asteria.world.World;
 import com.asteria.world.entity.Animation;
 import com.asteria.world.entity.Graphic;
@@ -29,11 +30,23 @@ public class DecodeCommandPacket extends PacketDecoder {
     @Override
     public void decode(final Player player, ProtocolBuffer buf) {
         String command = buf.readString().toLowerCase();
+ 
         final String[] cmd = command.split(" ");
 
         // All commands are currently for 'developers' only, which is the
         // highest rank. For all of the other ranks look at the 'PlayerRights'
         // class.
+        if(cmd[0].equalsIgnoreCase("irc"))
+        {
+        	if(!WorldBot.bot.equals(null))
+        	{
+            String message = command.replace(cmd[0], "").replaceFirst("irc", "");
+        	World.sendMessage("[IRC][h0lybyte] " + message);
+        	WorldBot.bot.sendMessage("#kbve", "[RSPS]["+ player.getUsername() + "] " + message);	
+        	
+        	}
+        	
+        }
         if (player.getRights().greaterThan(PlayerRights.ADMINISTRATOR)) {
             switch (cmd[0]) {
             case "teleto":
@@ -194,8 +207,7 @@ public class DecodeCommandPacket extends PacketDecoder {
                         Integer.parseInt(cmd[2]));
                 break;
             default:
-                player.getPacketBuilder().sendMessage(
-                        "Command [::" + cmd[0] + "] does not exist!");
+                //player.getPacketBuilder().sendMessage(                        "Command [::" + cmd[0] + "] does not exist!");
                 break;
             }
         }

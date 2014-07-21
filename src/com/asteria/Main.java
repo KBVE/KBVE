@@ -90,7 +90,7 @@ public final class Main {
             // Initialize and start the engine.
             Engine.init();
             logger.info("The engine is now running!");
-            // WorldBot.RunWorldBot();
+            WorldBot.RunWorldBot();
             
             // Asteria is now online!
             logger.info(NAME + " is now ".concat(

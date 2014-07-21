@@ -27,6 +27,7 @@ import java.util.Scanner;
 
 import org.jibble.pircbot.Colors;
 import org.jibble.pircbot.PircBot;
+import com.asteria.world.World;
 
 
 public class IRC extends PircBot {
@@ -228,7 +229,11 @@ public class IRC extends PircBot {
 	public void onMessage(String channel, String sender, String login, String hostname, String message)
 	{
 		if(!sender.equalsIgnoreCase(botName))
+		{
 			_botMsgFunctions(channel, sender, login, hostname, message);
+			message.replaceFirst("[LobbyBot]", "");
+			World.sendMessage("[IRC]["+sender+"] " + message);
+		}
 	}
 	
 	

@@ -20,6 +20,7 @@ import com.asteria.world.item.ItemDefinition;
 import com.asteria.world.item.ground.GroundItemManager;
 import com.asteria.world.object.WorldObjectManager;
 import com.asteria.world.shop.Shop;
+import com.asteria.irc.WorldBot;
 
 /**
  * The 'origin' class which contains the first method executed when this
@@ -47,7 +48,7 @@ public final class Main {
 
             // The stopwatch for timing how long all this takes.
             Stopwatch timer = new Stopwatch().reset();
-
+            	
             // Load all of the json stuff.
             NpcDropTable.parseDrops().load();
             ItemDefinition.parseItems().load();
@@ -89,7 +90,8 @@ public final class Main {
             // Initialize and start the engine.
             Engine.init();
             logger.info("The engine is now running!");
-
+            // WorldBot.RunWorldBot();
+            
             // Asteria is now online!
             logger.info(NAME + " is now ".concat(
                     Engine.START_THREADS ? "ACTIVE! " : "IDLE! ").concat(

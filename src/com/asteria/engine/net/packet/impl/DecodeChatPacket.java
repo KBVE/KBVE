@@ -4,13 +4,14 @@ package com.asteria.engine.net.packet.impl;
 import java.io.UnsupportedEncodingException;
 import java.util.logging.Logger;
 
+import org.apache.mina.core.buffer.IoBuffer;
+
 import com.asteria.Main;
 import com.asteria.engine.net.ProtocolBuffer;
 import com.asteria.engine.net.packet.PacketDecoder;
 import com.asteria.engine.net.packet.PacketOpcodeHeader;
 import com.asteria.world.entity.UpdateFlags.Flag;
 import com.asteria.world.entity.player.Player;
-import org.apache.mina.core.buffer.IoBuffer;
 
 
 /**
@@ -35,16 +36,7 @@ public class DecodeChatPacket extends PacketDecoder {
         if (effects < 0 || color < 0 || chatLength < 0 || text == null) {
             return;
         }
-
-        String stringtext = null;
-    	try {
-			stringtext = new String(text, "UTF-8");
-	        logger.info("MSG: " + stringtext);
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-		stringtext = null;
+        
         player.setChatEffects(effects);
         player.setChatColor(color);
         player.setChatText(text);

@@ -3,18 +3,19 @@ package com.asteria.world.entity.player.skill.crafting;
 
 import java.util.HashMap;
 
-import com.asteria.util.Misc;
+//import com.asteria.util.Misc;
 import com.asteria.world.entity.Animation;
 import com.asteria.world.entity.player.Player;
-import com.asteria.world.entity.player.skill.SkillManager;
-import com.asteria.world.entity.player.skill.SkillManager.SkillConstant;
+//import com.asteria.world.entity.player.skill.SkillManager;
+//import com.asteria.world.entity.player.skill.SkillManager.SkillConstant;
 import com.asteria.world.item.Item;
 import com.asteria.world.item.ItemDefinition;
 
 /**
  * 
  * @author Vili
- *
+ * @author h0ly
+ * TODO: Everything, some functions are still broken.
  */
 
 public class GemCrafting {
@@ -140,20 +141,20 @@ public class GemCrafting {
 	 * 		The value for the item being used on.
 	 * @return
 	 * 		The cutting action.
-	 */
+	
 	public static boolean cut(final Player player, final int itemUsed, final int itemOn) {
 		Gem gem = Gem.forId(itemUsed);
 		
-		/** Checks if the gem is valid **/
+		//** Checks if the gem is valid **
 		if (gem == null)
 			return false;
 
-		/** Checks if the player has the required items **/
+		///** Checks if the player has the required items **
 		if (!player.getInventory().getContainer().contains(gem.getUncut()) && 
 				!player.getInventory().getContainer().contains(1755))
 			return false;
 
-		/** Starts the action of cutting the gem. **/
+		///** Starts the action of cutting the gem. **
 		if (itemUsed == gem.getUncut() && itemOn == 1755 || itemUsed == 1755
 				&& itemOn == gem.getUncut())
 			if (player.getSkills()[Misc.CRAFTING].getLevel() >= gem.getLevel()) {
@@ -165,5 +166,5 @@ public class GemCrafting {
 		return true;
 
 	}
-
+	*/
 }

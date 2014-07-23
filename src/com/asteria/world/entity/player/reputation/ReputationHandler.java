@@ -30,26 +30,50 @@ public class ReputationHandler {
 //	    GetReputationMap().replace(City, Amount);
 	}	
 	**/
+		
+	/**
+	 * NewReputation
+	 * @author h0ly
+	 * 
+	 * We are working
+	 * 
+	 * @param player
+	 */
+
 	
-	public static void NewReputation(Player player, String city, Integer amount)
+	
+	public static void NewReputation(Player player)
 	{
-		player.getReputation().put("Draynor", 100);
+		player.getReputation().add(new Reputation("Civil", 100));
 		
 		
 	}
+	
+	/**
+	 * UpdateReputation
+	 * @author h0ly
+	 * 
+	 * We are working
+	 * 
+	 * @param player
+	 * @param city
+	 * @param amount
+	 */
+
+	/**
 	
 	public static void UpdateReputation(Player player, String city, Integer amount)
 	{
-		if(GetReputationPlayerMap().containsKey(player.getUsername()))
+			if(player.getReputation().containsKey(city))
 				{
-			GetReputationPlayerMap().get(player.getUsername()).GetReputation().clear();
-			GetReputationPlayerMap().remove(player.getUsername());
+				player.getReputation().put(city, player.getReputation().get(city)+amount);
 				}
-		Reputation playerrep = new Reputation(player.getUsername());
-		GetReputationPlayerMap().put(player.getUsername(),playerrep);
-		int amount = 100;
-		//InitReputation(player,"Daynor",amount);
-		//InitReputation(player,"Varrock", amount);
+				else
+				{
+				player.getReputation().put(city, amount);
+				}	
+	
 	}
+	**/
 	
 }

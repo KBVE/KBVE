@@ -35,6 +35,7 @@ import com.asteria.world.entity.player.content.TeleportSpell;
 import com.asteria.world.entity.player.content.TradeSession;
 import com.asteria.world.entity.player.minigame.Minigame;
 import com.asteria.world.entity.player.minigame.MinigameFactory;
+import com.asteria.world.entity.player.reputation.Reputation;
 import com.asteria.world.entity.player.skill.Skill;
 import com.asteria.world.entity.player.skill.Skills;
 import com.asteria.world.item.Item;
@@ -53,6 +54,8 @@ import com.asteria.world.map.Position;
  */
 public class Player extends Entity {
 
+	
+	
     /** The starting position. */
     public static final Position STARTING_POSITION = new Position(3093, 3244);
 
@@ -181,9 +184,6 @@ public class Player extends Entity {
     /** A list of local npcs. */
     private final Set<Npc> npcs = new LinkedHashSet<Npc>();
     
-    /** A reputation hashmap */
-    private HashMap<String, Integer> Reputation = new HashMap<String, Integer>();
-
     /** The players rights. */
     private PlayerRights rights;
 
@@ -211,6 +211,9 @@ public class Player extends Entity {
     /** The ignores list. */
     private List<Long> ignores = new ArrayList<Long>(100);
 
+    /** A reputation list */
+    private List<Reputation> reputation = new ArrayList<Reputation>(50);
+    
     /** For player npcs (pnpc). */
     private int npcAppearanceId = -1;
 
@@ -1277,6 +1280,22 @@ public class Player extends Entity {
     }
 
     /**
+     * Email Settings!
+     * 
+     * @param email
+     */
+    
+    /** Added Email per Player */
+	private String email;
+    
+    public void setEmail(String email){
+    	this.email = email;
+    }
+    public String getEmail(){
+    	return email;
+    }
+    
+    /**
      * @param teleblockTimer
      *            the teleblockTimer to set
      */
@@ -1453,11 +1472,11 @@ public class Player extends Entity {
     /**
      * 
      * 
-     * @return the Reputation
+     * @return the Reputation Map
      */
-    public HashMap<String, Integer> getReputation()
+    public List<Reputation> getReputation()
     {
-    	return Reputation;
+    	return reputation;
     }
     
     public Task getRestoreRun() {

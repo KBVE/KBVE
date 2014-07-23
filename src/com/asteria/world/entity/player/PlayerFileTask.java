@@ -137,7 +137,11 @@ public final class PlayerFileTask {
                             new Integer(player.getTeleblockTimer()));
                     object.addProperty("special-amount",
                             new Integer(player.getSpecialPercentage()));
-
+                   if(player.getEmail() != null && !player.getEmail().isEmpty())
+                    {
+                   object.addProperty("email", player.getEmail().trim());
+                    }
+                    
                     // And write the data to the character file!
                     FileWriter fileWriter = new FileWriter(file);
                     fileWriter.write(builder.toJson(object));
@@ -324,6 +328,11 @@ public final class PlayerFileTask {
                 if (reader.has("special-amount")) {
                     player.setSpecialPercentage(reader.get("special-amount")
                             .getAsInt());
+                }
+                
+                if (reader.has("email")) {
+                    player.setEmail(reader.get(
+                            "email").getAsString());
                 }
             } catch (Exception e) {
                 e.printStackTrace();

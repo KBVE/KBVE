@@ -451,7 +451,7 @@ public final class Session {
             packetBuilder.sendConfig(301, 0);
             packetBuilder.sendString(player.getRunEnergy() + "%", 149);
             CombatPrayer.resetAllGlows(player);
-            ReputationHandler.OnLoad(player);
+          
             // The player is now online!
             logger.info(player + " has logged in.");
             

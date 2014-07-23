@@ -13,6 +13,7 @@ import com.asteria.world.entity.combat.prayer.CombatPrayer;
 import com.asteria.world.entity.player.Player;
 import com.asteria.world.entity.player.content.AssignWeaponInterface.FightType;
 import com.asteria.world.entity.player.content.AssignWeaponInterface.WeaponInterface;
+import com.asteria.world.entity.player.content.EmoteAction;
 import com.asteria.world.entity.player.content.Spellbook;
 import com.asteria.world.entity.player.content.TradeSession.TradeStage;
 import com.asteria.world.entity.player.minigame.Minigame;
@@ -36,8 +37,11 @@ public class DecodeClickButtonPacket extends PacketDecoder {
     @Override
     public void decode(final Player player, ProtocolBuffer buf) {
         int buttonId = Utility.hexToInt(buf.readBytes(2));
-
+        if (EmoteAction.emote(player, buttonId)) {
+        	return;
+        }
         switch (buttonId) {
+        
 
         case 50235:
         case 4140:

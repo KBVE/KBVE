@@ -16,17 +16,23 @@ public class Reputation {
 	 * 
 	 */
 	
-	public HashMap<String, Integer> ReputationMap;
-	public String ReputationUsername; 
-	public Reputation(String username)
+
+	
+	public String ReputationCity;
+	public int ReputationAmount;
+	
+	public Reputation(String City, int Amount)
 	{
-		this.ReputationUsername = username;
-		this.ReputationMap = new HashMap<String, Integer>();
-		this.ReputationMap.put("Civil", 100);
+		this.ReputationCity = City;
+		this.ReputationAmount = Amount;
 	}
-	public HashMap<String, Integer> GetReputation()
+	public int GetCityReputation()
 	{
-		return this.ReputationMap;
+		return this.ReputationAmount;
+	}
+	public String GetCityName()
+	{
+		return this.ReputationCity;
 	}
 	
 
